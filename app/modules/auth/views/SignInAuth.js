@@ -34,14 +34,14 @@ class SignInAuth extends Component {
 
   async componentWillReceiveProps(props) {
     if (props.action === AUTHFAILED) {
-      this.setState({ showLoadingModal: false })
+      await this.setState({ showLoadingModal: false })
       Alert.alert(props.err)
     }
 
     if (props.action === AUTHSUCCESS) {
       await AsyncStorage.setItem('condition', LOGGEDIN)
       await AsyncStorage.setItem('token', props.res)
-      this.setState({ showLoadingModal: false })
+      await this.setState({ showLoadingModal: false })
       this.props.navigation.navigate('App')
     }
   }

@@ -1,21 +1,25 @@
-import React, { Component } from 'react'
-import { View, Alert } from 'react-native'
-import { connect } from 'react-redux'
-import axios from 'axios'
-import { userListClear } from '../ActionUsers'
-import { APIURI } from '../../../config/Api'
-import { APIUSER } from '../ConfigUsers'
-import MyInput from '../../../components/MyInput'
-import StyleUsers from '../StyleUsers'
-import { NavigationOptions } from '../../../config/Platform'
-import { DangerButton, NormalButton } from '../../../components/Button'
-import LoadingModal from '../../../components/LoadingModal'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
+import React, { Component } from 'react';
+import { View, Alert } from 'react-native';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { userListClear } from '../ActionUsers';
+import { APIURI } from '../../../config/Api';
+import { APIUSER } from '../ConfigUsers';
+import MyInput from '../../../components/MyInput';
+import StyleUsers from '../StyleUsers';
+import { NavigationOptions } from '../../../config/Platform';
+import { DangerButton, NormalButton } from '../../../components/Button';
+import LoadingModal from '../../../components/LoadingModal';
 
 const initialState = {
   nameInput: '',
   jobInput: '',
   showLoadingModal: false,
-}
+};
 
 class DetailUsers extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -24,13 +28,13 @@ class DetailUsers extends Component {
   })
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       ...initialState,
       operationType: this.props.navigation.getParam('navType', 'Add'),
       nameInput: this.props.navigation.getParam('userName', ''),
-    }
+    };
   }
 
   handleDelete() {
@@ -41,13 +45,13 @@ class DetailUsers extends Component {
       () => {
         axios.delete(`${APIURI}${APIUSER}`, { params: { id: this.props.navigation.getParam('id', 0) } })
           .then(() => {
-            this.success(`${this.props.navigation.getParam('userName', '')} was deleted`)
+            this.success(`${this.props.navigation.getParam('userName', '')} was deleted`);
           })
           .catch((error) => {
-            this.error(error)
-          })
+            this.error(error);
+          });
       },
-    )
+    );
   }
 
   handleInput() {
@@ -59,30 +63,30 @@ class DetailUsers extends Component {
         const data = {
           name: this.state.nameInput,
           job: this.state.jobInput,
-        }
+        };
 
         if (this.props.navigation.getParam('navType') === 'Add') {
           axios.post(`${APIURI}${APIUSER}`, { data })
             .then((response) => {
-              console.log(response)
-              this.success(`User ${response.data.data.name} as ${response.data.data.job}, has been created.`)
+              console.log(response);
+              this.success(`User ${response.data.data.name} as ${response.data.data.job}, has been created.`);
             })
             .catch((error) => {
-              this.error(error)
-            })
+              this.error(error);
+            });
         }
 
         if (this.props.navigation.getParam('navType') === 'View') {
           axios.put(`${APIURI}${APIUSER}/${this.props.navigation.getParam('id', 0)}`, { data })
             .then((response) => {
-              this.success(`Updated user ${response.data.data.name} as ${response.data.data.job}.`)
+              this.success(`Updated user ${response.data.data.name} as ${response.data.data.job}.`);
             })
             .catch((error) => {
-              this.error(error)
-            })
+              this.error(error);
+            });
         }
       },
-    )
+    );
   }
 
   success(message) {
@@ -93,7 +97,7 @@ class DetailUsers extends Component {
         text: 'Continue',
         onPress: () => this.setState({ showLoadingModal: false }, () => this.props.navigation.navigate('UserList')),
       }],
-    )
+    );
   }
 
   error(error) {
@@ -104,7 +108,7 @@ class DetailUsers extends Component {
         text: 'Back',
         onPress: () => this.setState({ showLoadingModal: false }),
       }],
-    )
+    );
   }
 
   renderForm() {
@@ -122,7 +126,7 @@ class DetailUsers extends Component {
           value={this.state.jobInput}
         />
       </View>
-    )
+    );
   }
 
   renderButtons() {
@@ -133,7 +137,7 @@ class DetailUsers extends Component {
           text={this.state.operationType === 'Add' ? 'Add' : 'Update'}
           containerStyle={StyleUsers.addButton}
         />
-      )
+      );
     }
     return (
       <View style={StyleUsers.buttonsContainer}>
@@ -147,7 +151,7 @@ class DetailUsers extends Component {
           text="Delete"
         />
       </View>
-    )
+    );
   }
 
   render() {
@@ -157,12 +161,12 @@ class DetailUsers extends Component {
         {this.renderButtons()}
         <LoadingModal show={this.state.showLoadingModal} />
       </View>
-    )
+    );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   onClearList: () => dispatch(userListClear()),
-})
+});
 
-export default connect(null, mapDispatchToProps)(DetailUsers)
+export default connect(null, mapDispatchToProps)(DetailUsers);

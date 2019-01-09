@@ -1,4 +1,8 @@
-import React, { Component } from 'react'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
+import React, { Component } from 'react';
 import {
   Text,
   View,
@@ -6,24 +10,24 @@ import {
   Image,
   TouchableOpacity,
   Animated, Easing,
-} from 'react-native'
-import { connect } from 'react-redux'
-import ActionButton from 'react-native-action-button'
-import { userListClear, userListFetch } from '../ActionUsers'
-import StyleUsers from '../StyleUsers'
-import { NavigationOptions } from '../../../config/Platform'
-import MyStatusBar from '../../../components/MyStatusBar'
-import Styles from '../../../theme/Styles'
+} from 'react-native';
+import { connect } from 'react-redux';
+import ActionButton from 'react-native-action-button';
+import { userListClear, userListFetch } from '../ActionUsers';
+import StyleUsers from '../StyleUsers';
+import { NavigationOptions } from '../../../config/Platform';
+import MyStatusBar from '../../../components/MyStatusBar';
+import Styles from '../../../theme/Styles';
 
-import Loading from '../../../assets/images/loading.png'
+import Loading from '../../../assets/images/loading.png';
 
-const ADD = 'Add'
-const VIEW = 'View'
+const ADD = 'Add';
+const VIEW = 'View';
 
 const initialState = {
   refreshing: false,
   page: 1,
-}
+};
 
 const ListItem = ({ avatar, title, onPress }) => (
   <TouchableOpacity onPress={onPress} style={StyleUsers.listItemContainer}>
@@ -32,7 +36,7 @@ const ListItem = ({ avatar, title, onPress }) => (
       {title}
     </Text>
   </TouchableOpacity>
-)
+);
 
 class ListUsers extends Component {
   static navigationOptions = {
@@ -40,25 +44,25 @@ class ListUsers extends Component {
     ...NavigationOptions,
   }
 
-  spinValue = new Animated.Value(0)
+  spinValue = new Animated.Value(0);
 
   constructor(props) {
-    super(props)
-    this.state = initialState
-    this.navigateToDetail = this.navigateToDetail.bind(this)
+    super(props);
+    this.state = initialState;
+    this.navigateToDetail = this.navigateToDetail.bind(this);
   }
 
   async componentDidMount() {
-    await this.props.onClearList()
-    this.makeRemoteRequest()
-    this.spin()
+    await this.props.onClearList();
+    this.makeRemoteRequest();
+    this.spin();
   }
 
   makeRemoteRequest = async (data) => {
-    const pages = Math.ceil(this.props.total / 10)
+    const pages = Math.ceil(this.props.total / 10);
     if (this.state.page <= pages || pages === 0) {
-      const sentData = await { ...data, per_page: 10 }
-      await this.props.onRequestList({ ...sentData })
+      const sentData = await { ...data, per_page: 10 };
+      await this.props.onRequestList({ ...sentData });
     }
   }
 
@@ -69,30 +73,30 @@ class ListUsers extends Component {
         page: 1,
       },
       async () => {
-        await this.props.onClearList()
-        await this.makeRemoteRequest()
-        this.setState({ refreshing: false })
+        await this.props.onClearList();
+        await this.makeRemoteRequest();
+        this.setState({ refreshing: false });
       },
-    )
+    );
   }
 
   handleLoadMore = () => {
-    const { page } = this.state
-    const next = page + 1
+    const { page } = this.state;
+    const next = page + 1;
     this.setState(
       {
         refreshing: true,
         page: next,
       },
       async () => {
-        await this.makeRemoteRequest({ page: this.state.page })
-        this.setState({ refreshing: false })
+        await this.makeRemoteRequest({ page: this.state.page });
+        this.setState({ refreshing: false });
       },
-    )
+    );
   }
 
   spin() {
-    this.spinValue.setValue(0)
+    this.spinValue.setValue(0);
     Animated.timing(
       this.spinValue,
       {
@@ -100,20 +104,20 @@ class ListUsers extends Component {
         duration: 4000,
         easing: Easing.linear,
       },
-    ).start(() => this.spin())
+    ).start(() => this.spin());
   }
 
   navigateToDetail(type, id, userName) {
-    this.props.navigation.navigate('UserDetail', { navType: type, id, userName })
+    this.props.navigation.navigate('UserDetail', { navType: type, id, userName });
   }
 
   renderFooter = () => {
-    if (this.props.total === this.props.res.length) return null
+    if (this.props.total === this.props.res.length) return null;
 
     const spin = this.spinValue.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '-360deg'],
-    })
+    });
     return (
       <View style={StyleUsers.containerLoading}>
         <Animated.Image
@@ -121,7 +125,7 @@ class ListUsers extends Component {
           source={Loading}
         />
       </View>
-    )
+    );
   }
 
   render() {
@@ -149,7 +153,7 @@ class ListUsers extends Component {
         </View>
         <ActionButton buttonColor="rgba(255, 87, 34, 1)" onPress={() => this.navigateToDetail(ADD)} />
       </View>
-    )
+    );
   }
 }
 
@@ -159,11 +163,11 @@ const mapStateToProps = state => ({
   err: state.user.errList,
   total: state.user.totalList,
   action: state.user.action,
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   onRequestList: value => dispatch(userListFetch(value)),
   onClearList: () => dispatch(userListClear()),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListUsers)
+export default connect(mapStateToProps, mapDispatchToProps)(ListUsers);

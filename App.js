@@ -1,23 +1,23 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+ * @author: dwi.setiyadi@gmail.com
+*/
 
-import React, { Component } from 'react'
-import { Provider } from 'react-redux'
-import { store } from './app/bootstrap/ReduxStore'
-import Router from './app/bootstrap/Router'
-
-import Styles from './app/theme/Styles'
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import { store, persistor } from './app/bootstrap/ReduxStore';
+import Bootstrap from './app/bootstrap/Bootstrap';
 
 export default class App extends Component {
   render() {
     return (
-      <Provider store={store} style={Styles.container}>
-        <Router />
+      <Provider store={store}>
+        <PersistGate
+          loading={null}
+          persistor={persistor}
+        >
+          <Bootstrap />
+        </PersistGate>
       </Provider>
     );
   }

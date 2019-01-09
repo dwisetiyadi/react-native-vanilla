@@ -1,6 +1,10 @@
-import { createStackNavigator } from 'react-navigation'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
 
-import { DetailUsers, ListUsers } from './views'
+import { createStackNavigator } from 'react-navigation';
+
+import { DetailUsers, ListUsers } from './views';
 
 
 export default createStackNavigator(
@@ -12,4 +16,4 @@ export default createStackNavigator(
     mode: 'screen',
     initialScreen: 'UserList',
   },
-)
+);

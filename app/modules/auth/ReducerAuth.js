@@ -1,15 +1,19 @@
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
 import {
   AUTHFETCH,
   AUTHSUCCESS,
   AUTHFAILED,
-} from './ConfigAuth'
+} from './ConfigAuth';
 
 const initialState = {
   fetch: false,
   send: null,
   res: null,
   err: null,
-}
+};
 
 export function ReducerAuth(state = initialState, action) {
   switch (action.type) {
@@ -19,7 +23,7 @@ export function ReducerAuth(state = initialState, action) {
         fetch: true,
         send: action.send,
         action: action.type,
-      }
+      };
 
     case AUTHSUCCESS:
       return {
@@ -27,7 +31,7 @@ export function ReducerAuth(state = initialState, action) {
         fetch: false,
         res: action.res,
         action: action.type,
-      }
+      };
 
     case AUTHFAILED:
       return {
@@ -35,9 +39,9 @@ export function ReducerAuth(state = initialState, action) {
         fetch: false,
         err: action.err,
         action: action.type,
-      }
+      };
 
     default:
-      return state
+      return state;
   }
 }

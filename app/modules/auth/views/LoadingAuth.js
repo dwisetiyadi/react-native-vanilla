@@ -1,32 +1,38 @@
-import React, { Component } from 'react'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
+import React, { Component } from 'react';
 import {
   View, AsyncStorage,
-} from 'react-native'
-import { LOGGEDIN, LOGGEDOUT } from '../ConfigAuth'
-import LoadingModal from '../../../components/LoadingModal'
+} from 'react-native';
+import { LOGGEDIN, LOGGEDOUT } from '../ConfigAuth';
+import LoadingModal from '../../../components/LoadingModal';
 
 const initialState = {
   showLoadingModal: false,
-}
+};
 
 class loading extends Component {
   constructor(props) {
-    super(props)
-    this.state = initialState
+    super(props);
+    this.state = initialState;
   }
 
   async componentDidMount() {
-    this.setState({ showLoadingModal: true })
-    const condition = await AsyncStorage.getItem('condition')
+    this.setState({ showLoadingModal: true });
+    const condition = await AsyncStorage.getItem('condition');
     switch (condition) {
       case LOGGEDOUT:
       default:
-        this.props.navigation.navigate('Auth')
-        break
+        this.setState({ showLoadingModal: false });
+        this.props.navigation.navigate('Auth');
+        break;
 
       case LOGGEDIN:
-        this.props.navigation.navigate('App')
-        break
+        this.setState({ showLoadingModal: false });
+        this.props.navigation.navigate('App');
+        break;
     }
   }
 
@@ -35,8 +41,8 @@ class loading extends Component {
       <View>
         <LoadingModal show={this.state.showLoadingModal} />
       </View>
-    )
+    );
   }
 }
 
-export default loading
+export default loading;

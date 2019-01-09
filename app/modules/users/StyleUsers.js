@@ -1,5 +1,9 @@
-import { StyleSheet } from 'react-native'
-import Styles, { Colors } from '../../theme/Styles'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
+import { StyleSheet } from 'react-native';
+import Styles, { Colors } from '../../theme/Styles';
 
 export default StyleSheet.create({
   container: {
@@ -54,4 +58,4 @@ export default StyleSheet.create({
     width: 40,
     height: 40,
   },
-})
+});

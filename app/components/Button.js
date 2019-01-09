@@ -1,6 +1,10 @@
-import React from 'react'
-import { TouchableOpacity, Text } from 'react-native'
-import { ButtonStyles } from '../theme/Styles'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
+import React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
+import { ButtonStyles } from '../theme/Styles';
 
 export const NormalButton = ({
   onPress,
@@ -13,7 +17,7 @@ export const NormalButton = ({
       {text.toUpperCase()}
     </Text>
   </TouchableOpacity>
-)
+);
 
 export const DangerButton = ({
   onPress,
@@ -26,4 +30,4 @@ export const DangerButton = ({
       {text.toUpperCase()}
     </Text>
   </TouchableOpacity>
-)
+);

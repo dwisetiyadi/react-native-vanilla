@@ -1,58 +1,97 @@
-import React, { Component } from 'react'
-import { View, Alert, AsyncStorage } from 'react-native'
-import { connect } from 'react-redux'
-import MyStatusBar from '../../../components/MyStatusBar'
-import { NormalButton } from '../../../components/Button'
-import { NavigationOptions } from '../../../config/Platform'
-import MyInput from '../../../components/MyInput'
-import LoadingModal from '../../../components/LoadingModal'
-import StyleAuth from '../StyleAuth'
-import { authFetch } from '../ActionAuth'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
+import React, { Component } from 'react';
+import { View, Alert, AsyncStorage } from 'react-native';
+import { connect } from 'react-redux';
+import MyStatusBar from '../../../components/MyStatusBar';
+import { NormalButton } from '../../../components/Button';
+import { NavigationOptions } from '../../../config/Platform';
+import MyInput from '../../../components/MyInput';
+import LoadingModal from '../../../components/LoadingModal';
+import StyleAuth from '../StyleAuth';
+import { authFetch } from '../ActionAuth';
 import {
   AUTHSUCCESS, AUTHFAILED, LOGGEDIN,
-} from '../ConfigAuth'
-
-const initialState = {
-  emailInput: '',
-  passwordInput: '',
-  showLoadingModal: false,
-}
+} from '../ConfigAuth';
 
 class SignInAuth extends Component {
   static navigationOptions = {
     title: 'Log in',
     ...NavigationOptions,
-  }
+  };
 
   constructor(props) {
-    super(props)
-
-    this.state = initialState
-
-    this.handleNavigation = this.handleNavigation.bind(this)
+    super(props);
+    this.state = {
+      emailInput: '',
+      passwordInput: '',
+      showLoadingModal: false,
+      action: this.props.action,
+      err: this.props.err,
+      res: this.props.res,
+    };
+    this.handleNavigation = this.handleNavigation.bind(this);
   }
 
-  async componentWillReceiveProps(props) {
-    if (props.action === AUTHFAILED) {
-      await this.setState({ showLoadingModal: false })
-      Alert.alert(props.err)
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.action !== prevState.action) {
+      let nextErr = prevState.err;
+      let nextRes = prevState.res;
+
+      if (nextProps.action === AUTHFAILED) {
+        nextErr = nextProps.err;
+      }
+      if (nextProps.action === AUTHSUCCESS) {
+        nextRes = nextProps.res;
+      }
+
+      return {
+        action: nextProps.action,
+        err: nextErr,
+        res: nextRes,
+      };
     }
 
-    if (props.action === AUTHSUCCESS) {
-      await AsyncStorage.setItem('condition', LOGGEDIN)
-      await AsyncStorage.setItem('token', props.res)
-      await this.setState({ showLoadingModal: false })
-      this.props.navigation.navigate('App')
+    return null;
+  }
+
+  async componentDidUpdate(prevProps, prevState) {
+    if (prevState.action !== this.state.action) {
+      if (this.state.action === AUTHFAILED) {
+        Alert.alert(
+          'Error',
+          this.state.err,
+          [
+            {
+              text: 'Ok',
+              onPress: () => {
+                this.setState({ showLoadingModal: false });
+              },
+            },
+          ],
+        );
+      }
+
+      if (this.state.action === AUTHSUCCESS) {
+        await AsyncStorage.setItem('condition', LOGGEDIN);
+        await AsyncStorage.setItem('token', this.state.res);
+        /* eslint-disable react/no-did-update-set-state */
+        this.setState({ showLoadingModal: false });
+        /* eslint-enable react/no-did-update-set-state */
+        this.props.navigation.navigate('App');
+      }
     }
   }
 
   handleNavigation() {
-    this.setState({ showLoadingModal: true })
+    this.setState({ showLoadingModal: true });
     const data = {
       email: this.state.emailInput,
       password: this.state.passwordInput,
-    }
-    this.props.onRequest(data)
+    };
+    this.props.onRequest(data);
   }
 
   renderForm() {
@@ -75,7 +114,7 @@ class SignInAuth extends Component {
           secureTextEntry
         />
       </View>
-    )
+    );
   }
 
   render() {
@@ -88,7 +127,7 @@ class SignInAuth extends Component {
         </View>
         <LoadingModal show={this.state.showLoadingModal} />
       </View>
-    )
+    );
   }
 }
 
@@ -97,10 +136,10 @@ const mapStateToProps = state => ({
   res: state.auth.res,
   err: state.auth.err,
   action: state.auth.action,
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   onRequest: value => dispatch(authFetch(value)),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInAuth)
+export default connect(mapStateToProps, mapDispatchToProps)(SignInAuth);

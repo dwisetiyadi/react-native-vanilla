@@ -1,46 +1,63 @@
 {
   "name": "vanilla",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
-  "author": "Dwi Setiyadi <dwi.setiyadi@gmail.com>",
   "scripts": {
+    "first-blood": "npm i && npm i -g react-native-cli && react-native eject && react-native link && react-native-ci-tools bundle 'com.github.reactnativevanilla' 'Vanilla' -ia",
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "ios": "react-native run-ios --simulator='iPhone 6s'",
+    "start-clean": "node node_modules/react-native/local-cli/cli.js start -- --reset-cache",
+    "ios": "react-native run-ios --simulator='iPhone 5s'",
+    "ios-clean": "cd ios && rm -rf build",
     "android": "react-native run-android",
+    "android-clean": "cd android && ./gradlew clean",
     "android-build-unsigned": "react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug && cd android && ./gradlew assembleDebug",
+    "android-build-signed": "react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug && cd android && ./gradlew assembleRelease",
     "lint": "eslint *.js **/*.js",
     "test": "jest"
   },
+  "rnpm": {
+    "assets": [
+      "./app/assets/fonts/"
+    ]
+  },
   "dependencies": {
-    "@babel/runtime": "^7.0.0",
+    "@babel/runtime": "^7.2.0",
     "axios": "^0.18.0",
-    "babel-eslint": "^10.0.1",
     "lodash": "^4.17.11",
-    "moment": "^2.22.2",
+    "moment": "^2.23.0",
     "prop-types": "^15.6.2",
-    "qs": "^6.5.2",
-    "react": "16.5.0",
-    "react-native": "0.57.1",
+    "qs": "^6.6.0",
+    "react": "16.6.3",
+    "react-native": "0.57.8",
     "react-native-action-bar": "^2.0.5",
     "react-native-action-button": "^2.8.5",
+    "react-native-ci-tools": "^1.1.0",
+    "react-native-config": "^0.11.7",
+    "react-native-device-info": "^0.24.3",
+    "react-native-dotenv": "^0.2.0",
+    "react-native-gesture-handler": "^1.0.12",
     "react-native-textinput-effects": "^0.4.2",
-    "react-native-vector-icons": "^5.0.0",
-    "react-navigation": "^2.17.0",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
-    "redux-saga": "^0.16.0"
+    "react-native-vector-icons": "^6.1.0",
+    "react-navigation": "^3.0.9",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "redux-persist-transform-encrypt": "^2.0.1",
+    "redux-persist-transform-filter": "0.0.18",
+    "redux-saga": "^0.16.2"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "babel-jest": "23.6.0",
-    "eslint": "^5.6.0",
+    "eslint": "^5.12.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-react-native": "^3.3.0",
+    "eslint-plugin-react": "^7.12.3",
+    "eslint-plugin-react-native": "^3.5.0",
     "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.47.0",
-    "react-test-renderer": "16.5.0"
+    "metro-react-native-babel-preset": "0.51.1",
+    "react-test-renderer": "16.7.0"
   },
   "jest": {
     "preset": "react-native"

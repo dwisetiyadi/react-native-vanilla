@@ -1,6 +1,10 @@
-import { StyleSheet, Dimensions } from 'react-native'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
 
-const { width } = Dimensions.get('window')
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
@@ -21,4 +25,4 @@ export default StyleSheet.create({
   emailInput: {
     marginBottom: 32,
   },
-})
+});

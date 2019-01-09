@@ -1,8 +1,12 @@
-export const LOGGEDIN = 'LOGGEDIN'
-export const LOGGEDOUT = 'LOGGEDOUT'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
 
-export const AUTHFETCH = 'AUTHFETCH'
-export const AUTHSUCCESS = 'AUTHSUCCESS'
-export const AUTHFAILED = 'AUTHFAILED'
+export const LOGGEDIN = 'LOGGEDIN';
+export const LOGGEDOUT = 'LOGGEDOUT';
 
-export const APISIGNIN = 'api/login'
+export const AUTHFETCH = 'AUTHFETCH';
+export const AUTHSUCCESS = 'AUTHSUCCESS';
+export const AUTHFAILED = 'AUTHFAILED';
+
+export const APISIGNIN = 'api/login';

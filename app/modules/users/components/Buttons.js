@@ -1,8 +1,14 @@
-import React from 'react'
-import {Text, TouchableOpacity} from 'react-native'
-import StyleNews from '../StyleUsers'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
 
-export const SearchButton = ({ onPress, label, containerStyle, labelStyle, ...props }) => (
+import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
+import StyleNews from '../StyleUsers';
+
+export const SearchButton = ({
+  onPress, label, containerStyle, labelStyle, ...props
+}) => (
   <TouchableOpacity
     style={[StyleNews.searchButtonContainer, containerStyle]}
     onPress={onPress}
@@ -12,4 +18,4 @@ export const SearchButton = ({ onPress, label, containerStyle, labelStyle, ...pr
       {label}
     </Text>
   </TouchableOpacity>
-)
+);

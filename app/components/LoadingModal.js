@@ -1,19 +1,23 @@
-import React from 'react'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
+import React from 'react';
 import {
   View, Modal, StyleSheet, Animated, Easing,
-} from 'react-native'
-import { Colors } from '../theme/Styles'
-import Loading from '../assets/images/loading.png'
+} from 'react-native';
+import { Colors } from '../theme/Styles';
+import Loading from '../assets/images/loading.png';
 
 export default class LoadingModal extends React.Component {
-  spinValue = new Animated.Value(0)
+  spinValue = new Animated.Value(0);
 
   componentDidMount() {
-    this.spin()
+    this.spin();
   }
 
   spin() {
-    this.spinValue.setValue(0)
+    this.spinValue.setValue(0);
     Animated.timing(
       this.spinValue,
       {
@@ -21,14 +25,14 @@ export default class LoadingModal extends React.Component {
         duration: 4000,
         easing: Easing.linear,
       },
-    ).start(() => this.spin())
+    ).start(() => this.spin());
   }
 
   render() {
     const spin = this.spinValue.interpolate({
       inputRange: [0, 1],
       outputRange: ['0deg', '-360deg'],
-    })
+    });
     return (
       <Modal
         animationType="fade"
@@ -43,7 +47,7 @@ export default class LoadingModal extends React.Component {
           />
         </View>
       </Modal>
-    )
+    );
   }
 }
 const styleLoadingModal = StyleSheet.create({
@@ -57,4 +61,4 @@ const styleLoadingModal = StyleSheet.create({
     width: 120,
     height: 120,
   },
-})
+});

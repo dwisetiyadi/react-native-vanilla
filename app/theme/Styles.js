@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
 export const Colors = {
   purple: '#603fb0',
@@ -14,7 +14,7 @@ export const Colors = {
     background: 'rgba(0,0,0,0.5)',
     headerEffect: 'rgba(0,0,0,0.6)',
   },
-}
+};
 
 export const ButtonStyles = StyleSheet.create({
   buttonContainer: {
@@ -35,7 +35,7 @@ export const ButtonStyles = StyleSheet.create({
     fontSize: 14,
     color: Colors.white,
   },
-})
+});
 
 export default StyleSheet.create({
   container: {
@@ -50,4 +50,4 @@ export default StyleSheet.create({
   appHeaderTitle: {
     fontWeight: 'bold',
   },
-})
+});

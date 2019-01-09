@@ -1,6 +1,6 @@
 import {
   USERLISTCLEAR, USERLISTFAILED, USERLISTFETCH, USERLISTSUCCESS, USERLISTTOTAL,
-} from './ConfigUsers'
+} from './ConfigUsers';
 
 const initialState = {
   fetchList: true,
@@ -8,7 +8,7 @@ const initialState = {
   errList: null,
   dataList: null,
   totalList: 0,
-}
+};
 
 export function ReducerUsers(state = initialState, action) {
   switch (action.type) {
@@ -18,7 +18,7 @@ export function ReducerUsers(state = initialState, action) {
         fetchList: true,
         dataList: action.dataLazyLoad,
         action: action.type,
-      }
+      };
 
     case USERLISTSUCCESS:
       return {
@@ -26,7 +26,7 @@ export function ReducerUsers(state = initialState, action) {
         fetchList: false,
         resList: [...state.resList, ...action.resList],
         action: action.type,
-      }
+      };
 
     case USERLISTFAILED:
       return {
@@ -34,7 +34,7 @@ export function ReducerUsers(state = initialState, action) {
         fetchList: false,
         errList: action.errList,
         action: action.type,
-      }
+      };
 
     case USERLISTCLEAR:
       return {
@@ -42,16 +42,16 @@ export function ReducerUsers(state = initialState, action) {
         resList: initialState.resList,
         totalList: initialState.totalList,
         action: action.type,
-      }
+      };
 
     case USERLISTTOTAL:
       return {
         ...state,
         totalList: action.totalList,
         action: action.type,
-      }
+      };
 
     default:
-      return state
+      return state;
   }
 }

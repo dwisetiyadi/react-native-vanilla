@@ -1,5 +1,9 @@
-import React from 'react'
-import { TextInput } from 'react-native'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
+
+import React from 'react';
+import { TextInput } from 'react-native';
 
 const MyInput = ({ style, ...props }) => (
   <TextInput
@@ -7,12 +11,12 @@ const MyInput = ({ style, ...props }) => (
     style={[inputStyle, style]}
     {...props}
   />
-)
+);
 
 const inputStyle = {
   borderBottomWidth: 0.5,
   borderBottomColor: '#AAA',
   fontSize: 16,
-}
+};
 
-export default MyInput
+export default MyInput;

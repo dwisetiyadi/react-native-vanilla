@@ -1,5 +1,9 @@
-import DetailUsers_ from './DetailUsers'
-import ListUsers_ from './ListUsers'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
 
-export const DetailUsers = DetailUsers_
-export const ListUsers = ListUsers_
+import DetailUsers_ from './DetailUsers';
+import ListUsers_ from './ListUsers';
+
+export const DetailUsers = DetailUsers_;
+export const ListUsers = ListUsers_;

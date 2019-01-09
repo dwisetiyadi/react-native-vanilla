@@ -1,6 +1,10 @@
-import { createStackNavigator } from 'react-navigation'
+/**
+ * @author: dwi.setiyadi@gmail.com
+*/
 
-import signIn from './views/SignInAuth'
+import { createStackNavigator } from 'react-navigation';
+
+import signIn from './views/SignInAuth';
 
 export default createStackNavigator(
   {
@@ -10,4 +14,4 @@ export default createStackNavigator(
     initialRouteName: 'SignIn',
     mode: 'modal',
   },
-)
+);

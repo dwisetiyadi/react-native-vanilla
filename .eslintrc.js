@@ -10,7 +10,7 @@ module.exports = {
     "camelcase" : 1,
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "semi": 0, // disallow semicolons
+    "semi": 2, // disallow semicolons
     "react/jsx-wrap-multilines": 0, // along the same lines of playing fast-and-loose with ASI
     "react/jsx-filename-extension": 0, // component files still have a .js extension
     "no-use-before-define": 0, //allows to make the component the topmost element in a module file, and define a styles object further down.

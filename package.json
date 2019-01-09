@@ -31,7 +31,6 @@
     "react-native": "0.57.8",
     "react-native-action-bar": "^2.0.5",
     "react-native-action-button": "^2.8.5",
-    "react-native-ci-tools": "^1.1.0",
     "react-native-config": "^0.11.7",
     "react-native-device-info": "^0.24.3",
     "react-native-dotenv": "^0.2.0",
@@ -57,7 +56,8 @@
     "eslint-plugin-react-native": "^3.5.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.51.1",
-    "react-test-renderer": "16.7.0"
+    "react-test-renderer": "16.7.0",
+    "react-native-ci-tools": "^1.1.0"
   },
   "jest": {
     "preset": "react-native"

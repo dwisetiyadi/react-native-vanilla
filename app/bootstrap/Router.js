@@ -16,6 +16,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'AuthLoading',
+    headerMode: 'none',
   },
 );
 

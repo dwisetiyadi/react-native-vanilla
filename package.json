@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "first-blood": "npm i && npm i -g react-native-cli && react-native eject && react-native link && react-native-ci-tools bundle 'com.github.reactnativevanilla' 'Vanilla' -ia",
+    "first-blood": "npm i && npm i -g react-native-cli && react-native eject && react-native link && react-native-ci-tools bundle \"com.github.reactnativevanilla\" \"Vanilla\" -ia",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "start-clean": "node node_modules/react-native/local-cli/cli.js start -- --reset-cache",
     "ios": "react-native run-ios --simulator='iPhone 5s'",

@@ -2,16 +2,15 @@
  * @author: dwi.setiyadi@gmail.com
 */
 
-import Config from 'react-native-config';
 import { AsyncStorage } from 'react-native';
 import createEncryptor from 'redux-persist-transform-encrypt';
 import { createBlacklistFilter } from 'redux-persist-transform-filter';
 
 const encryptor = createEncryptor({
   secretKey: 'abang-baso-jangan-kasih-tau-sipa-siapa-ya',
-  onError(error) {
-    if (Config.GROW_ENV === 'development') console.log('createEncryptor error ', error);
-  },
+  // onError(error) {
+  //   console.log('createEncryptor error ', error);
+  // },
 });
 
 const saveAuthSubsetBlacklistFilter = createBlacklistFilter(

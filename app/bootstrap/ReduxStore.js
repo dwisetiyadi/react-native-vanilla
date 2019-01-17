@@ -26,8 +26,12 @@ const reduxStore = createStore(
   composeEnhancer(applyMiddleware(...middlewares)),
 );
 
-export const persistor = persistStore(reduxStore);
-
 sagaMiddleware.run(reduxSaga);
 
-export const store = reduxStore;
+const persistor = persistStore(reduxStore);
+const store = reduxStore;
+
+export default {
+  persistor,
+  store,
+};

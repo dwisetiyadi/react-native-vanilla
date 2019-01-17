@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import {
   View, AsyncStorage,
 } from 'react-native';
-import { LOGGEDIN, LOGGEDOUT } from '../ConfigAuth';
+import { LOGGEDIN } from '../ConfigAuth';
 import LoadingModal from '../../../components/LoadingModal';
 
 const initialState = {
@@ -23,15 +23,14 @@ class loading extends Component {
     this.setState({ showLoadingModal: true });
     const condition = await AsyncStorage.getItem('condition');
     switch (condition) {
-      case LOGGEDOUT:
-      default:
-        this.setState({ showLoadingModal: false });
-        this.props.navigation.navigate('Auth');
-        break;
-
       case LOGGEDIN:
         this.setState({ showLoadingModal: false });
         this.props.navigation.navigate('App');
+        break;
+
+      default:
+        this.setState({ showLoadingModal: false });
+        this.props.navigation.navigate('Auth');
         break;
     }
   }

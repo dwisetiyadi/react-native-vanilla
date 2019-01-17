@@ -4,14 +4,14 @@
 
 import { createStackNavigator } from 'react-navigation';
 
-import signIn from './views/SignInAuth';
+import { SignInAuth } from './views';
 
 export default createStackNavigator(
   {
-    SignIn: { screen: signIn },
+    SignIn: { screen: SignInAuth },
   },
   {
     initialRouteName: 'SignIn',
-    mode: 'modal',
+    mode: 'screen',
   },
 );

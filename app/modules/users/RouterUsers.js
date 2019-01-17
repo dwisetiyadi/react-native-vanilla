@@ -13,7 +13,7 @@ export default createStackNavigator(
     UserDetail: { screen: DetailUsers },
   },
   {
-    mode: 'screen',
     initialScreen: 'UserList',
+    mode: 'screen',
   },
 );

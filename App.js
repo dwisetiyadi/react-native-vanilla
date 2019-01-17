@@ -5,18 +5,17 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
-import { store, persistor } from './app/bootstrap/ReduxStore';
-import Bootstrap from './app/bootstrap/Bootstrap';
+import Bootstrap from './app/bootstrap';
 
 export default class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <Provider store={Bootstrap.ReduxStore}>
         <PersistGate
           loading={null}
-          persistor={persistor}
+          persistor={Bootstrap.ReduxPersist}
         >
-          <Bootstrap />
+          <Bootstrap.ViewContainer />
         </PersistGate>
       </Provider>
     );

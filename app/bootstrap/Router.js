@@ -4,21 +4,25 @@
 
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
-import AuthLoadingScreen from '../modules/auth/views/LoadingAuth';
-import AuthRouter from '../modules/auth/RouterAuth';
+import { LoadingAuth, SignInAuth } from '../modules/auth/views';
 import RouterUsers from '../modules/users/RouterUsers';
 
-const AppNavigator = createStackNavigator(
-  {
-    AuthLoading: AuthLoadingScreen,
-    Auth: AuthRouter,
-    App: RouterUsers,
-  },
-  {
-    initialRouteName: 'AuthLoading',
-    headerMode: 'none',
-  },
-);
+const screens = {
+  AuthLoading: LoadingAuth,
+  Auth: SignInAuth,
+  App: RouterUsers,
+};
 
+const settings = {
+  initialRouteName: 'AuthLoading',
+  headerMode: 'none',
+};
+
+const AppNavigator = createStackNavigator(screens, settings);
 const AppContainer = createAppContainer(AppNavigator);
-export default AppContainer;
+
+export default {
+  screens,
+  settings,
+  AppContainer,
+};

@@ -2,15 +2,7 @@
  * @author: dwi.setiyadi@gmail.com
 */
 
-import TranslatorAuth from '../modules/auth/TranslatorAuth';
-import TranslatorUsers from '../modules/users/TranslatorUsers';
-
-export const Availability = [
-  'id',
-  'en',
-];
-
-const GlobalTranslator = [
+export default [
   {
     id: 'Anda yakin ingin keluar aplikasi?',
     en: 'Are you sure want to close this app?',
@@ -47,10 +39,4 @@ const GlobalTranslator = [
     id: 'Lihat',
     en: 'View',
   },
-];
-
-export const Locale = [
-  ...GlobalTranslator,
-  ...TranslatorAuth,
-  ...TranslatorUsers,
 ];

@@ -4,7 +4,7 @@
 
 import { Dimensions, Platform } from 'react-native';
 import deviceInfo from 'react-native-device-info';
-import { Availability } from '../lang/Translation';
+import { Availability } from '../lang/ConfigLang';
 
 export const NavigationOptions = {
   headerStyle: {

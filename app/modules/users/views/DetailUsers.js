@@ -13,7 +13,7 @@ import MyInput from '../../../components/MyInput';
 import StyleUsers from '../StyleUsers';
 import { NavigationOptions } from '../../../config/Platform';
 import { DangerButton, NormalButton } from '../../../components/Button';
-import _ from '../../../lang/Translator';
+import _ from '../../../lang';
 
 import LoadingModal from '../../../components/LoadingModal';
 

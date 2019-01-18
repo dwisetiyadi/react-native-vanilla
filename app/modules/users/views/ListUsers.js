@@ -18,7 +18,7 @@ import StyleUsers from '../StyleUsers';
 import { NavigationOptions } from '../../../config/Platform';
 import MyStatusBar from '../../../components/MyStatusBar';
 import Styles from '../../../theme/Styles';
-import _ from '../../../lang/Translator';
+import _ from '../../../lang';
 
 import Loading from '../../../assets/images/loading.png';
 

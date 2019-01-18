@@ -15,7 +15,7 @@ import { authFetch } from '../ActionAuth';
 import {
   AUTHSUCCESS, AUTHFAILED, LOGGEDIN,
 } from '../ConfigAuth';
-import _ from '../../../lang/Translator';
+import _ from '../../../lang';
 
 class SignInAuth extends Component {
   static navigationOptions = {

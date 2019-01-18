@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import Router from '../Router';
 import NavigationService from '../NavigationService';
 import { setScreen } from './ActionContainer';
-import _ from '../../lang/Translator';
+import _ from '../../lang';
 
 import styles from '../../theme/Styles';
 

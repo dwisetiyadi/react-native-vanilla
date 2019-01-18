@@ -15,7 +15,6 @@ const screens = {
 
 const settings = {
   initialRouteName: 'AuthLoading',
-  headerMode: 'none',
 };
 
 const AppNavigator = createStackNavigator(screens, settings);

@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import Router from '../Router';
 import NavigationService from '../NavigationService';
 import { setScreen } from './ActionContainer';
+import _ from '../../lang/Translator';
 
 import styles from '../../theme/Styles';
 
@@ -35,16 +36,16 @@ class ViewContainer extends Component {
       if (this.state.currentScreen === Router.settings.initialRouteName) {
         Alert.alert(
           '',
-          'Are you sure want to close this app?',
+          _('Anda yakin ingin keluar aplikasi?'),
           [
             {
-              text: 'No',
+              text: _('Tidak'),
               onPress: () => {
                 NavigationService.navigate(this.state.prevScreen);
               },
             },
             {
-              text: 'Yes',
+              text: _('Ya'),
               onPress: () => {
                 BackHandler.exitApp();
               },

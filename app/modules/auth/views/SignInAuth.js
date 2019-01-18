@@ -15,10 +15,12 @@ import { authFetch } from '../ActionAuth';
 import {
   AUTHSUCCESS, AUTHFAILED, LOGGEDIN,
 } from '../ConfigAuth';
+import _ from '../../../lang/Translator';
 
 class SignInAuth extends Component {
   static navigationOptions = {
-    title: 'Log in',
+    title: _('Masuk'),
+    headerLeft: null,
     ...NavigationOptions,
   };
 
@@ -102,7 +104,7 @@ class SignInAuth extends Component {
         <MyInput
           onChangeText={text => this.setState({ emailInput: text })}
           value={this.state.emailInput}
-          placeholder="Email"
+          placeholder={_('Surel')}
           autoCapitalize="none"
           autoCorrect={false}
           style={StyleAuth.emailInput}
@@ -110,7 +112,7 @@ class SignInAuth extends Component {
         <MyInput
           onChangeText={text => this.setState({ passwordInput: text })}
           value={this.state.passwordInput}
-          placeholder="Password"
+          placeholder={_('Sandi')}
           secureTextEntry
         />
       </View>
@@ -123,7 +125,7 @@ class SignInAuth extends Component {
         <MyStatusBar />
         <View style={StyleAuth.innerContainer}>
           {this.renderForm()}
-          <NormalButton onPress={this.handleNavigation} text="Login" />
+          <NormalButton onPress={this.handleNavigation} text={_('Masuk')} />
         </View>
         <LoadingModal show={this.state.showLoadingModal} />
       </View>

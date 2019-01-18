@@ -13,6 +13,8 @@ import MyInput from '../../../components/MyInput';
 import StyleUsers from '../StyleUsers';
 import { NavigationOptions } from '../../../config/Platform';
 import { DangerButton, NormalButton } from '../../../components/Button';
+import _ from '../../../lang/Translator';
+
 import LoadingModal from '../../../components/LoadingModal';
 
 const initialState = {
@@ -23,7 +25,7 @@ const initialState = {
 
 class DetailUsers extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: navigation.getParam('navType', 'Add'),
+    title: (navigation.getParam('navType') === 'Add') ? _('Tambah') : _('Lihat'),
     ...NavigationOptions,
   })
 
@@ -45,7 +47,7 @@ class DetailUsers extends Component {
       () => {
         axios.delete(`${APIURI}${APIUSER}`, { params: { id: this.props.navigation.getParam('id', 0) } })
           .then(() => {
-            this.success(`${this.props.navigation.getParam('userName', '')} was deleted`);
+            this.success(`${this.props.navigation.getParam('userName', '')} ${_('telah dihapus')}`);
           })
           .catch((error) => {
             this.error(error);
@@ -69,7 +71,7 @@ class DetailUsers extends Component {
           axios.post(`${APIURI}${APIUSER}`, { data })
             .then((response) => {
               console.log(response);
-              this.success(`User ${response.data.data.name} as ${response.data.data.job}, has been created.`);
+              this.success(`${_('Pengguna')} ${response.data.data.name} ${_('sebagai')} ${response.data.data.job}, ${_('telah dibuat')}.`);
             })
             .catch((error) => {
               this.error(error);
@@ -79,7 +81,7 @@ class DetailUsers extends Component {
         if (this.props.navigation.getParam('navType') === 'View') {
           axios.put(`${APIURI}${APIUSER}/${this.props.navigation.getParam('id', 0)}`, { data })
             .then((response) => {
-              this.success(`Updated user ${response.data.data.name} as ${response.data.data.job}.`);
+              this.success(`${_('Pengguna')} ${response.data.data.name} ${_('sebagai')} ${response.data.data.job}, ${_('telah diubah')}.`);
             })
             .catch((error) => {
               this.error(error);
@@ -91,10 +93,10 @@ class DetailUsers extends Component {
 
   success(message) {
     Alert.alert(
-      'Success',
+      _('Berhasil'),
       message,
       [{
-        text: 'Continue',
+        text: _('Lanjut'),
         onPress: () => this.setState({ showLoadingModal: false }, () => this.props.navigation.navigate('UserList')),
       }],
     );
@@ -116,13 +118,13 @@ class DetailUsers extends Component {
       <View style={StyleUsers.formContainer}>
         <MyInput
           onChangeText={text => this.setState({ nameInput: text })}
-          placeholder="Name"
+          placeholder={_('Nama')}
           value={this.state.nameInput}
           style={StyleUsers.nameInput}
         />
         <MyInput
           onChangeText={text => this.setState({ jobInput: text })}
-          placeholder="Job"
+          placeholder={_('Pekerjaan')}
           value={this.state.jobInput}
         />
       </View>
@@ -134,7 +136,7 @@ class DetailUsers extends Component {
       return (
         <NormalButton
           onPress={() => this.handleInput()}
-          text={this.state.operationType === 'Add' ? 'Add' : 'Update'}
+          text={this.state.operationType === 'Add' ? _('Tambah') : _('Ubah')}
           containerStyle={StyleUsers.addButton}
         />
       );
@@ -143,12 +145,12 @@ class DetailUsers extends Component {
       <View style={StyleUsers.buttonsContainer}>
         <NormalButton
           onPress={() => this.handleInput()}
-          text={this.state.operationType === 'Add' ? 'Add' : 'Update'}
+          text={this.state.operationType === 'Add' ? _('Tambah') : _('Ubah')}
           containerStyle={StyleUsers.nameInput}
         />
         <DangerButton
           onPress={() => this.handleDelete()}
-          text="Delete"
+          text={_('Hapus')}
         />
       </View>
     );

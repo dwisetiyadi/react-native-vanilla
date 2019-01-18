@@ -18,6 +18,7 @@ import StyleUsers from '../StyleUsers';
 import { NavigationOptions } from '../../../config/Platform';
 import MyStatusBar from '../../../components/MyStatusBar';
 import Styles from '../../../theme/Styles';
+import _ from '../../../lang/Translator';
 
 import Loading from '../../../assets/images/loading.png';
 
@@ -40,7 +41,7 @@ const ListItem = ({ avatar, title, onPress }) => (
 
 class ListUsers extends Component {
   static navigationOptions = {
-    title: 'User List',
+    title: _('List Pengguna'),
     ...NavigationOptions,
   }
 

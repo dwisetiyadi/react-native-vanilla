@@ -12,6 +12,6 @@ export default createStackNavigator(
   },
   {
     initialRouteName: 'SignIn',
-    mode: 'screen',
+    mode: 'modal',
   },
 );

@@ -3,7 +3,7 @@
 */
 
 
-import LocaleGlobal from '../lang/Locale';
+import LocaleGlobal from '../lang/LocaleGlobal';
 import LocaleAuth from '../modules/auth/LocaleAuth';
 import LocaleUsers from '../modules/users/LocaleUsers';
 

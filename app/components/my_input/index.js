@@ -4,19 +4,14 @@
 
 import React from 'react';
 import { TextInput } from 'react-native';
+import StyleMyInput from './StyleMyInput';
 
 const MyInput = ({ style, ...props }) => (
   <TextInput
     underlineColorAndroid="transparent"
-    style={[inputStyle, style]}
+    style={[StyleMyInput, style]}
     {...props}
   />
 );
-
-const inputStyle = {
-  borderBottomWidth: 0.5,
-  borderBottomColor: '#AAA',
-  fontSize: 16,
-};
 
 export default MyInput;

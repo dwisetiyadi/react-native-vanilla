@@ -7,10 +7,10 @@ import {
   View, Alert, AsyncStorage, Text,
 } from 'react-native';
 import { connect } from 'react-redux';
-import MyStatusBar from '../../../components/MyStatusBar';
-import { NormalButton } from '../../../components/Button';
-import MyInput from '../../../components/MyInput';
-import LoadingModal from '../../../components/LoadingModal';
+import MyStatusBar from '../../../components/my_status_bar';
+import { NormalButton } from '../../../components/button';
+import MyInput from '../../../components/my_input';
+import LoadingModal from '../../../components/loading_modal';
 import StyleAuth from '../StyleAuth';
 import { authFetch } from '../ActionAuth';
 import {

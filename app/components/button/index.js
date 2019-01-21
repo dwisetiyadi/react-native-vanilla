@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import { ButtonStyles } from '../theme/Styles';
+import StyleButton from './StyleButton';
 
 export const NormalButton = ({
   onPress,
@@ -12,8 +12,8 @@ export const NormalButton = ({
   containerStyle,
   textStyle,
 }) => (
-  <TouchableOpacity onPress={onPress} style={[ButtonStyles.buttonContainer, ButtonStyles.normal, containerStyle]}>
-    <Text style={[ButtonStyles.text, textStyle]}>
+  <TouchableOpacity onPress={onPress} style={[StyleButton.buttonContainer, StyleButton.normal, containerStyle]}>
+    <Text style={[StyleButton.text, textStyle]}>
       {text.toUpperCase()}
     </Text>
   </TouchableOpacity>
@@ -25,8 +25,8 @@ export const DangerButton = ({
   containerStyle,
   textStyle,
 }) => (
-  <TouchableOpacity onPress={onPress} style={[ButtonStyles.buttonContainer, ButtonStyles.danger, containerStyle]}>
-    <Text style={[ButtonStyles.text, textStyle]}>
+  <TouchableOpacity onPress={onPress} style={[StyleButton.buttonContainer, StyleButton.danger, containerStyle]}>
+    <Text style={[StyleButton.text, textStyle]}>
       {text.toUpperCase()}
     </Text>
   </TouchableOpacity>

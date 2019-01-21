@@ -16,8 +16,8 @@ import ActionButton from 'react-native-action-button';
 import { userListClear, userListFetch } from '../ActionUsers';
 import StyleUsers from '../StyleUsers';
 import { NavigationOptions } from '../../../config/NavigationOptions';
-import MyStatusBar from '../../../components/MyStatusBar';
-import Styles from '../../../theme/Styles';
+import MyStatusBar from '../../../components/my_status_bar';
+import Styles from '../../../styles';
 import _ from '../../../lang';
 
 import Loading from '../../../assets/images/loading.png';
@@ -131,7 +131,7 @@ class ListUsers extends Component {
 
   render() {
     return (
-      <View style={Styles.container}>
+      <View style={Styles.Main.container}>
         <MyStatusBar />
         <View>
           <FlatList

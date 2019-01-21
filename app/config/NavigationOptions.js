@@ -2,13 +2,13 @@
  * @author: dwi.setiyadi@gmail.com
 */
 
-import { Colors } from '../theme/Styles';
+import Styles from '../styles';
 
 export const NavigationOptions = {
   headerStyle: {
-    backgroundColor: Colors.purple,
+    backgroundColor: Styles.Colors.purple,
   },
-  headerTintColor: Colors.white,
+  headerTintColor: Styles.Colors.white,
   headerTitleStyle: {
     fontWeight: 'bold',
   },

@@ -6,9 +6,9 @@ import React, { Component } from 'react';
 import {
   View, AsyncStorage,
 } from 'react-native';
-import MyStatusBar from '../../../components/MyStatusBar';
+import MyStatusBar from '../../../components/my_status_bar';
 import { LOGGEDIN } from '../ConfigAuth';
-import LoadingModal from '../../../components/LoadingModal';
+import LoadingModal from '../../../components/loading_modal';
 
 const initialState = {
   showLoadingModal: false,

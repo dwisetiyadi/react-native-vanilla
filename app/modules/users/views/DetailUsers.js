@@ -9,14 +9,14 @@ import axios from 'axios';
 import { userListClear } from '../ActionUsers';
 import { APIURI } from '../../../config/Api';
 import { APIUSER } from '../ConfigUsers';
-import MyInput from '../../../components/MyInput';
+import MyInput from '../../../components/my_input';
 import StyleUsers from '../StyleUsers';
 import { NavigationOptions } from '../../../config/NavigationOptions';
-import MyStatusBar from '../../../components/MyStatusBar';
-import { DangerButton, NormalButton } from '../../../components/Button';
+import MyStatusBar from '../../../components/my_status_bar';
+import { DangerButton, NormalButton } from '../../../components/button';
 import _ from '../../../lang';
 
-import LoadingModal from '../../../components/LoadingModal';
+import LoadingModal from '../../../components/loading_modal';
 
 const initialState = {
   nameInput: '',
@@ -71,6 +71,7 @@ class DetailUsers extends Component {
         if (this.props.navigation.getParam('navType') === 'Add') {
           axios.post(`${APIURI}${APIUSER}`, { data })
             .then((response) => {
+              console.log(response);
               this.success(`${_('Pengguna')} ${response.data.data.name} ${_('sebagai')} ${response.data.data.job}, ${_('telah dibuat')}.`);
             })
             .catch((error) => {

@@ -4,8 +4,8 @@
 
 import React from 'react';
 import { StatusBar } from 'react-native';
-import { Colors } from '../theme/Styles';
+import Styles from '../../styles';
 
-const MyStatusBar = () => <StatusBar backgroundColor={Colors.lightPurple} />;
+const MyStatusBar = () => <StatusBar backgroundColor={Styles.Colors.lightPurple} />;
 
 export default MyStatusBar;

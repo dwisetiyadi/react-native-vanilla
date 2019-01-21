@@ -3,11 +3,11 @@
 */
 
 import { StyleSheet } from 'react-native';
-import Styles, { Colors } from '../../theme/Styles';
+import Styles from '../../styles';
 
 export default StyleSheet.create({
   container: {
-    ...Styles.container,
+    ...Styles.Main.container,
     justifyContent: 'space-between',
   },
   listContainer: {
@@ -19,7 +19,7 @@ export default StyleSheet.create({
     marginHorizontal: 8,
     marginBottom: 10,
     elevation: 2,
-    backgroundColor: Colors.white,
+    backgroundColor: Styles.Colors.white,
   },
   listItemImage: {
     width: 40,
@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
   listItemTitle: {
     fontSize: 16,
-    color: Colors.black,
+    color: Styles.Colors.black,
   },
   formContainer: {
     paddingHorizontal: 16,

@@ -4,12 +4,12 @@
 
 import React from 'react';
 import {
-  View, Modal, StyleSheet, Animated, Easing,
+  View, Modal, Animated, Easing,
 } from 'react-native';
-import { Colors } from '../theme/Styles';
-import Loading from '../assets/images/loading.png';
+import StyleLoadingModal from './StyleLoadingModal';
+import Loading from '../../assets/images/loading.png';
 
-export default class LoadingModal extends React.Component {
+class LoadingModal extends React.Component {
   spinValue = new Animated.Value(0);
 
   componentDidMount() {
@@ -40,9 +40,9 @@ export default class LoadingModal extends React.Component {
         visible={this.props.show}
         onRequestClose={() => {}}
       >
-        <View style={styleLoadingModal.container}>
+        <View style={StyleLoadingModal.container}>
           <Animated.Image
-            style={[styleLoadingModal.loading, { transform: [{ rotate: spin }] }]}
+            style={[StyleLoadingModal.loading, { transform: [{ rotate: spin }] }]}
             source={Loading}
           />
         </View>
@@ -50,15 +50,5 @@ export default class LoadingModal extends React.Component {
     );
   }
 }
-const styleLoadingModal = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.loadingModal.background,
-  },
-  loading: {
-    width: 120,
-    height: 120,
-  },
-});
+
+export default LoadingModal;

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import StyleNews from '../StyleUsers';
-import { Colors } from '../../theme/Styles';
+import { Colors } from '../../styles/Styles';
 
 export const SearchIcon = ({ onPress }) => (
   <TouchableWithoutFeedback onPress={onPress}>

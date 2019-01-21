@@ -13,7 +13,7 @@ import NavigationService from '../NavigationService';
 import { setScreen } from './ActionContainer';
 import _ from '../../lang';
 
-import styles from '../../theme/Styles';
+import Styles from '../../styles';
 
 class ViewContainer extends Component {
   state = {
@@ -66,7 +66,7 @@ class ViewContainer extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={Styles.Main.container}>
         <Router
           ref={(ref) => {
             NavigationService.setTopLevelNavigator(ref);

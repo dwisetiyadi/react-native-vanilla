@@ -16,7 +16,7 @@ const settings = {
   headerMode: 'none',
 };
 
-const exitAppWhiteList = [
+const exitAppWhiteListScreen = [
   'AuthLoading',
   'Auth',
 ];
@@ -24,5 +24,5 @@ const exitAppWhiteList = [
 export default {
   screens,
   settings,
-  exitAppWhiteList,
+  exitAppWhiteListScreen,
 };

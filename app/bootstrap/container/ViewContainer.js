@@ -36,8 +36,8 @@ class ViewContainer extends Component {
 
   componentDidUpdate() {
     if (this.state.action === 'Navigation/BACK') {
-      const exitAppWhiteList = RouterConfig.exitAppWhiteList.indexOf(this.state.thisScreen);
-      if (exitAppWhiteList >= 0) {
+      const exitAppWhiteListScreen = RouterConfig.exitAppWhiteListScreen.indexOf(this.state.thisScreen);
+      if (exitAppWhiteListScreen >= 0) {
         if (Platform.OS === 'ios') {
           NavigationService.navigate(this.state.prevScreen);
         } else if (Platform.OS === 'android') {

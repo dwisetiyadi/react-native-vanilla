@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import ActionButton from 'react-native-action-button';
 import { userListClear, userListFetch } from '../ActionUsers';
 import StyleUsers from '../StyleUsers';
-import { NavigationOptions } from '../../../config/Platform';
+import { NavigationOptions } from '../../../config/NavigationOptions';
 import MyStatusBar from '../../../components/MyStatusBar';
 import Styles from '../../../theme/Styles';
 import _ from '../../../lang';

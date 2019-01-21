@@ -3,7 +3,7 @@
 */
 
 import { createStackNavigator } from 'react-navigation';
-
+import { isIos } from '../../config/Platform';
 import { SignInAuth } from './views';
 
 export default createStackNavigator(
@@ -12,6 +12,6 @@ export default createStackNavigator(
   },
   {
     initialRouteName: 'SignIn',
-    mode: 'modal',
+    headerMode: isIos ? 'float' : 'screen',
   },
 );

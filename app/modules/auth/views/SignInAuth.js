@@ -3,11 +3,12 @@
 */
 
 import React, { Component } from 'react';
-import { View, Alert, AsyncStorage } from 'react-native';
+import {
+  View, Alert, AsyncStorage, Text,
+} from 'react-native';
 import { connect } from 'react-redux';
 import MyStatusBar from '../../../components/MyStatusBar';
 import { NormalButton } from '../../../components/Button';
-import { NavigationOptions } from '../../../config/Platform';
 import MyInput from '../../../components/MyInput';
 import LoadingModal from '../../../components/LoadingModal';
 import StyleAuth from '../StyleAuth';
@@ -18,12 +19,6 @@ import {
 import _ from '../../../lang';
 
 class SignInAuth extends Component {
-  static navigationOptions = {
-    title: _('Masuk'),
-    headerLeft: null,
-    ...NavigationOptions,
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -123,6 +118,9 @@ class SignInAuth extends Component {
     return (
       <View style={StyleAuth.container}>
         <MyStatusBar />
+        <View>
+          <Text>{_('Masuk')}</Text>
+        </View>
         <View style={StyleAuth.innerContainer}>
           {this.renderForm()}
           <NormalButton onPress={this.handleNavigation} text={_('Masuk')} />

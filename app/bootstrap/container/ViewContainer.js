@@ -3,9 +3,12 @@
 */
 
 import React, { Component } from 'react';
-import { BackHandler, View, Alert } from 'react-native';
+import {
+  BackHandler, View, Alert, Platform,
+} from 'react-native';
 import { connect } from 'react-redux';
 import Router from '../Router';
+import RouterConfig from '../../config/Router';
 import NavigationService from '../NavigationService';
 import { setScreen } from './ActionContainer';
 import _ from '../../lang';
@@ -16,7 +19,7 @@ class ViewContainer extends Component {
   state = {
     action: this.props.action,
     prevScreen: this.props.prevScreen,
-    currentScreen: this.props.currentScreen,
+    thisScreen: this.props.thisScreen,
   }
 
   static getDerivedStateFromProps(nextProps) {
@@ -24,7 +27,7 @@ class ViewContainer extends Component {
       return {
         action: nextProps.action,
         prevScreen: nextProps.prevScreen,
-        currentScreen: nextProps.currentScreen,
+        thisScreen: nextProps.thisScreen,
       };
     }
 
@@ -33,25 +36,30 @@ class ViewContainer extends Component {
 
   componentDidUpdate() {
     if (this.state.action === 'Navigation/BACK') {
-      if (this.state.currentScreen === Router.settings.initialRouteName) {
-        Alert.alert(
-          '',
-          _('Anda yakin ingin keluar aplikasi?'),
-          [
-            {
-              text: _('Tidak'),
-              onPress: () => {
-                NavigationService.navigate(this.state.prevScreen);
+      const exitAppWhiteList = RouterConfig.exitAppWhiteList.indexOf(this.state.thisScreen);
+      if (exitAppWhiteList >= 0) {
+        if (Platform.OS === 'ios') {
+          NavigationService.navigate(this.state.prevScreen);
+        } else if (Platform.OS === 'android') {
+          Alert.alert(
+            '',
+            _('Anda yakin ingin keluar aplikasi?'),
+            [
+              {
+                text: _('Tidak'),
+                onPress: () => {
+                  NavigationService.navigate(this.state.prevScreen);
+                },
               },
-            },
-            {
-              text: _('Ya'),
-              onPress: () => {
-                BackHandler.exitApp();
+              {
+                text: _('Ya'),
+                onPress: () => {
+                  BackHandler.exitApp();
+                },
               },
-            },
-          ],
-        );
+            ],
+          );
+        }
       }
     }
   }
@@ -59,7 +67,7 @@ class ViewContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Router.AppContainer
+        <Router
           ref={(ref) => {
             NavigationService.setTopLevelNavigator(ref);
           }}
@@ -67,8 +75,8 @@ class ViewContainer extends Component {
             if (action.type === 'Navigation/NAVIGATE' || action.type === 'Navigation/BACK') {
               this.props.setScreen({
                 action: action.type,
-                previous: NavigationService.getRouteName(prevState),
-                current: NavigationService.getRouteName(currentState),
+                prevScreen: NavigationService.getRouteName(prevState),
+                thisScreen: NavigationService.getRouteName(currentState),
               });
             }
           }}
@@ -79,9 +87,9 @@ class ViewContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  action: state.screen.action,
-  prevScreen: state.screen.previous,
-  currentScreen: state.screen.current,
+  action: state.bootstrap.action,
+  prevScreen: state.bootstrap.prevScreen,
+  thisScreen: state.bootstrap.thisScreen,
 });
 const mapDispatchToProps = dispatch => ({
   setScreen: value => dispatch(setScreen(value)),

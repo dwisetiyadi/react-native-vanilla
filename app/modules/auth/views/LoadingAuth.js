@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import {
   View, AsyncStorage,
 } from 'react-native';
+import MyStatusBar from '../../../components/MyStatusBar';
 import { LOGGEDIN } from '../ConfigAuth';
 import LoadingModal from '../../../components/LoadingModal';
 
@@ -20,16 +21,16 @@ class loading extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ showLoadingModal: true });
+    await this.setState({ showLoadingModal: true });
     const condition = await AsyncStorage.getItem('condition');
     switch (condition) {
       case LOGGEDIN:
-        this.setState({ showLoadingModal: false });
+        await this.setState({ showLoadingModal: false });
         this.props.navigation.navigate('App');
         break;
 
       default:
-        this.setState({ showLoadingModal: false });
+        await this.setState({ showLoadingModal: false });
         this.props.navigation.navigate('Auth');
         break;
     }
@@ -38,6 +39,7 @@ class loading extends Component {
   render() {
     return (
       <View>
+        <MyStatusBar />
         <LoadingModal show={this.state.showLoadingModal} />
       </View>
     );

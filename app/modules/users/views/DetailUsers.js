@@ -11,7 +11,8 @@ import { APIURI } from '../../../config/Api';
 import { APIUSER } from '../ConfigUsers';
 import MyInput from '../../../components/MyInput';
 import StyleUsers from '../StyleUsers';
-import { NavigationOptions } from '../../../config/Platform';
+import { NavigationOptions } from '../../../config/NavigationOptions';
+import MyStatusBar from '../../../components/MyStatusBar';
 import { DangerButton, NormalButton } from '../../../components/Button';
 import _ from '../../../lang';
 
@@ -115,6 +116,7 @@ class DetailUsers extends Component {
   renderForm() {
     return (
       <View style={StyleUsers.formContainer}>
+        <MyStatusBar />
         <MyInput
           onChangeText={text => this.setState({ nameInput: text })}
           placeholder={_('Nama')}

@@ -15,7 +15,7 @@ export default class App extends Component {
           loading={null}
           persistor={Bootstrap.ReduxPersist}
         >
-          <Bootstrap.ViewContainer />
+          <Bootstrap.Container.View />
         </PersistGate>
       </Provider>
     );

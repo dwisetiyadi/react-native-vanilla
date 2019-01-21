@@ -3,7 +3,7 @@
 */
 
 import { createStackNavigator } from 'react-navigation';
-
+import { isIos } from '../../config/Platform';
 import { DetailUsers, ListUsers } from './views';
 
 
@@ -14,6 +14,6 @@ export default createStackNavigator(
   },
   {
     initialScreen: 'UserList',
-    mode: 'screen',
+    headerMode: isIos ? 'float' : 'screen',
   },
 );

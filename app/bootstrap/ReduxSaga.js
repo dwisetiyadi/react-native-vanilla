@@ -3,12 +3,8 @@
 */
 
 import { all } from 'redux-saga/effects';
-import { watcherAuth } from '../modules/auth/SagaAuth';
-import { watcherUser } from '../modules/users/SagaUsers';
+import LoadSagas from '../config/ReduxSaga';
 
 export default function* reduxSaga() {
-  yield all([
-    ...watcherAuth,
-    ...watcherUser,
-  ]);
+  yield all(LoadSagas);
 }

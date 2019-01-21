@@ -4,17 +4,7 @@
 
 import { Dimensions, Platform } from 'react-native';
 import deviceInfo from 'react-native-device-info';
-import { Availability } from '../lang/ConfigLang';
-
-export const NavigationOptions = {
-  headerStyle: {
-    backgroundColor: '#603fb0',
-  },
-  headerTintColor: '#fff',
-  headerTitleStyle: {
-    fontWeight: 'bold',
-  },
-};
+import { Availability } from './Language';
 
 const { width, height } = Dimensions.get('window');
 export const dimensions = {

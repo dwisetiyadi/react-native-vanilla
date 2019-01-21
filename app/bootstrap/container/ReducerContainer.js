@@ -6,8 +6,8 @@ import { SETSCREEN } from '../../config/Constants';
 
 const initialState = {
   action: null,
-  previous: null,
-  current: null,
+  prevScreen: null,
+  thisScreen: null,
 };
 
 export function ReducerContainer(state = initialState, action) {
@@ -16,8 +16,8 @@ export function ReducerContainer(state = initialState, action) {
       return {
         ...state,
         action: action.screen.action,
-        previous: action.screen.previous,
-        current: action.screen.current,
+        prevScreen: action.screen.prevScreen,
+        thisScreen: action.screen.thisScreen,
       };
 
     default:

@@ -2,7 +2,7 @@
  * @author: dwi.setiyadi@gmail.com
 */
 
-import { Locale } from './ConfigLang';
+import { Locale } from '../config/Language';
 import { lang } from '../config/Platform';
 
 function translator(key, unique) {

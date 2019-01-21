@@ -3,15 +3,9 @@
 */
 
 import { combineReducers } from 'redux';
-import Container from './container';
-import { ReducerAuth } from '../modules/auth/ReducerAuth';
-import { ReducerUsers } from '../modules/users/ReducerUsers';
+import LoadReducers from '../config/ReduxReducer';
 
-const reduxReducer = combineReducers({
-  screen: Container.Reducer,
-  auth: ReducerAuth,
-  user: ReducerUsers,
-});
+const reduxReducer = combineReducers(LoadReducers);
 
 // const rootReducer = (state, action) => {
 //   return reduxReducer(state, action)

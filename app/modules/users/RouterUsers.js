@@ -2,8 +2,8 @@
  * @author: dwi.setiyadi@gmail.com
 */
 
+import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import { isIos } from '../../config/Platform';
 import { DetailUsers, ListUsers } from './views';
 
 
@@ -14,6 +14,6 @@ export default createStackNavigator(
   },
   {
     initialScreen: 'UserList',
-    headerMode: isIos ? 'float' : 'screen',
+    headerMode: Platform.OS === 'ios' ? 'float' : 'screen',
   },
 );

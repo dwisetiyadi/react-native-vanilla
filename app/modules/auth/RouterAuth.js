@@ -2,8 +2,8 @@
  * @author: dwi.setiyadi@gmail.com
 */
 
+import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import { isIos } from '../../config/Platform';
 import { SignInAuth } from './views';
 
 export default createStackNavigator(
@@ -12,6 +12,6 @@ export default createStackNavigator(
   },
   {
     initialRouteName: 'SignIn',
-    headerMode: isIos ? 'float' : 'screen',
+    headerMode: Platform.OS === 'ios' ? 'float' : 'screen',
   },
 );

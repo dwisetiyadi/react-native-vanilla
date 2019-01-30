@@ -5,7 +5,7 @@
 import { LoadingAuth, SignInAuth } from '../modules/auth/views';
 import RouterUsers from '../modules/users/RouterUsers';
 
-const screens = {
+const modules = {
   AuthLoading: LoadingAuth,
   Auth: SignInAuth,
   App: RouterUsers,
@@ -22,7 +22,7 @@ const exitAppWhiteListScreen = [
 ];
 
 export default {
-  screens,
+  modules,
   settings,
   exitAppWhiteListScreen,
 };

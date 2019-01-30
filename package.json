@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "first-blood": "npm i && npm i -g react-native-cli && npm i -g react-native-ci-tools && react-native eject && react-native link && react-native-ci-tools bundle \"com.github.reactnativevanilla\" \"Vanilla\" -ia",
+    "precommit": "rimraf .git/hooks/pre-commit.sample && rimraf .git/hooks/pre-commit && cp ./pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "start-clean": "node node_modules/react-native/local-cli/cli.js start -- --reset-cache",
     "ios": "react-native run-ios --simulator='iPhone 5s'",
-    "ios-clean": "cd ios && rm -rf build",
+    "ios-clean": "cd ios && rimraf build",
     "android": "react-native run-android",
     "android-clean": "cd android && ./gradlew clean",
     "android-build-unsigned": "react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug && cd android && ./gradlew assembleDebug",
@@ -56,8 +57,9 @@
     "eslint-plugin-react-native": "^3.5.0",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.51.1",
+    "react-native-ci-tools": "^1.1.0",
     "react-test-renderer": "16.7.0",
-    "react-native-ci-tools": "^1.1.0"
+    "rimraf": "^2.6.3"
   },
   "jest": {
     "preset": "react-native"

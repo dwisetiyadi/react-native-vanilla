@@ -26,12 +26,12 @@ class loading extends Component {
     switch (condition) {
       case LOGGEDIN:
         await this.setState({ showLoadingModal: false });
-        this.props.navigation.navigate('App');
+        this.props.navigation.navigate('UserList');
         break;
 
       default:
         await this.setState({ showLoadingModal: false });
-        this.props.navigation.navigate('Auth');
+        this.props.navigation.navigate('SignIn');
         break;
     }
   }

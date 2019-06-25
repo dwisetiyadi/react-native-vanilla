@@ -5,5 +5,10 @@
 import DetailUsers_ from './DetailUsers';
 import ListUsers_ from './ListUsers';
 
-export const DetailUsers = DetailUsers_;
-export const ListUsers = ListUsers_;
+const DetailUsers = DetailUsers_;
+const ListUsers = ListUsers_;
+
+export default {
+  DetailUsers,
+  ListUsers,
+};

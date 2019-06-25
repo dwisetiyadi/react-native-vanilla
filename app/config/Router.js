@@ -2,13 +2,12 @@
  * @author: dwi.setiyadi@gmail.com
 */
 
-import { LoadingAuth, SignInAuth } from '../modules/auth/views';
+import RouterAuth from '../modules/auth/RouterAuth';
 import RouterUsers from '../modules/users/RouterUsers';
 
 const modules = {
-  AuthLoading: LoadingAuth,
-  Auth: SignInAuth,
-  App: RouterUsers,
+  ...RouterAuth,
+  ...RouterUsers,
 };
 
 const settings = {

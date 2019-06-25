@@ -5,5 +5,10 @@
 import LoadingAuth_ from './LoadingAuth';
 import SignInAuth_ from './SignInAuth';
 
-export const LoadingAuth = LoadingAuth_;
-export const SignInAuth = SignInAuth_;
+const LoadingAuth = LoadingAuth_;
+const SignInAuth = SignInAuth_;
+
+export default {
+  LoadingAuth,
+  SignInAuth,
+};

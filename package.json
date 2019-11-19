@@ -14,7 +14,8 @@
     "android-build-unsigned": "react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug && cd android && ./gradlew assembleDebug",
     "android-build-signed": "react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug && cd android && ./gradlew assembleRelease",
     "lint": "eslint *.js **/*.js",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "jetifier -r"
   },
   "rnpm": {
     "assets": [
@@ -47,6 +48,15 @@
     "redux-saga": "^0.16.2"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/qs": "^6.9.0",
+    "@types/react": "^16.9.11",
+    "@types/react-native": "^0.60.22",
+    "@types/react-native-vector-icons": "^6.4.4",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-test-renderer": "^16.9.1",
+    "@types/redux-persist": "^4.3.1",
+    "@types/redux-persist-transform-encrypt": "^2.0.1",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "eslint": "^5.16.0",
@@ -56,12 +66,31 @@
     "eslint-plugin-react": "^7.14.1",
     "eslint-plugin-react-native": "^3.7.0",
     "jest": "^24.8.0",
+    "jetifier": "^1.6.4",
     "metro-react-native-babel-preset": "0.51.1",
     "react-native-ci-tools": "^1.1.0",
+    "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "16.7.0",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache"
   }
 }

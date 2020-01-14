@@ -24,6 +24,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.5",
     "axios": "^0.19.0",
+    "jetifier": "^1.6.5",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
@@ -47,19 +48,26 @@
     "redux-saga": "^0.16.2"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
+    "@types/jest": "^24.0.25",
+    "@types/react": "^16.9.17",
+    "@types/react-native": "^0.60.27",
+    "@types/react-navigation": "^3.4.0",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-test-renderer": "^16.9.1",
     "babel-jest": "^24.8.0",
-    "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.14.1",
     "eslint-plugin-react-native": "^3.7.0",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "0.51.1",
     "react-native-ci-tools": "^1.1.0",
+    "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "16.7.0",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.2.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.4"
   },
   "jest": {
     "preset": "react-native"

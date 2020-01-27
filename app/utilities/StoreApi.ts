@@ -8,7 +8,12 @@
 
 import axios from 'axios';
 import qs from 'qs';
-import { APIURI } from '../config/Api';
+import { APIURI, APISINTONG } from '../config/Api';
+import { 
+  getToken
+} from '../config/Helpers';
+
+
 
 export const post = (operation: string, data: any): any => axios({
   method: 'post',
@@ -20,3 +25,21 @@ export const post = (operation: string, data: any): any => axios({
 });
 
 export const get = (operation: string, data: any): any => axios.get(`${APIURI}${operation}?${qs.stringify(data)}`);
+
+export const request = async (operation: string, method: string, data?: any, contentType?: string = 'application/json'): any => {
+  const Token = await getToken();  
+  return axios({
+    method: method,
+    url: APISINTONG + operation,
+    data,
+    headers: {
+      'content-type': contentType,
+      'Authorization': `Bearer ${Token}` 
+    }
+  })
+  .then(res => res.data)
+  .catch(err => {
+    console.log("err: ", err)
+    return err;
+  })
+}

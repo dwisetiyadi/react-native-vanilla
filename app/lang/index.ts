@@ -5,7 +5,7 @@
 import { Locale } from '../config/Language';
 import { lang } from '../config/Platform';
 
-function translator(key: any, unique: any): any {
+function translator(key: any, unique?: any): any {
   if (key == null) {
     return '';
   }

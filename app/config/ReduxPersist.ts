@@ -15,7 +15,7 @@ const encryptor = createEncryptor({
 
 const saveAuthSubsetBlacklistFilter = createBlacklistFilter(
   'auth',
-  ['data', 'res', 'action'],
+  ['data' , 'action'],
 );
 
 const REDUX_PERSIST = {
@@ -24,7 +24,7 @@ const REDUX_PERSIST = {
   storeConfig: {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['auth', 'notification'],
+    // whitelist: ['auth', 'notification'],
     transforms: [saveAuthSubsetBlacklistFilter, encryptor],
   },
 };

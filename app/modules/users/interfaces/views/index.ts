@@ -1,3 +1,10 @@
+
+import { 
+  NavigationScreenProp, 
+  NavigationState, 
+  NavigationParams 
+} from 'react-navigation';
+
 export interface IDetailUsersProps {
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
   onClearList: () => void;
@@ -11,12 +18,12 @@ export interface IDetailUsersState {
 }
 
 
-interface IListUsersState {
+export interface IListUsersState {
   refreshing: boolean | null;
   page: number;
 }
 
-interface IListUsersProps {
+export interface IListUsersProps {
   fetch: any
   res: any,
   err: any,
@@ -26,7 +33,7 @@ interface IListUsersProps {
   onClearList: () =>  void,
   navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
-interface IListUsersListItemProps {
+export interface IListUsersListItemProps {
   avatar: string;
   title: string;
   onPress: () => void;

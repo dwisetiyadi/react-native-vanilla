@@ -56,5 +56,5 @@ buck-out/
 *.jsbundle
 
 package-lock.json
-ios/
-android/
+# ios/
+# android/

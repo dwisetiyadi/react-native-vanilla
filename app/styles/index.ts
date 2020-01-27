@@ -20,6 +20,15 @@ const Main = StyleSheet.create({
   appHeaderTitle: {
     fontWeight: 'bold',
   },
+  navBottomIcon: {
+    height: 22,
+    width: 22
+  },
+  Image: {
+    height: 25,
+    width: 35,
+    borderRadius: 35
+  }
 });
 
 export default {

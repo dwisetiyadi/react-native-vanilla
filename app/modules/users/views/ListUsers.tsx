@@ -10,6 +10,7 @@ import {
   Image,
   TouchableOpacity,
   Animated, Easing,
+  AsyncStorage
 } from 'react-native';
 import { 
   NavigationScreenProp, 

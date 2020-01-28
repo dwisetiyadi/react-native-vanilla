@@ -14,9 +14,6 @@ import MyInput from '../../../components/my_input';
 import LoadingModal from '../../../components/loading_modal';
 import StyleAuth from '../StyleAuth';
 import { authFetch } from '../ActionAuth';
-import {
-  BINUSAUTHSUCCESS, BINUSAUTHFAILED, BINUSLOGGEDIN,
-} from '../ConfigAuth';
 import _ from '../../../lang';
 import { 
   IBinusSignInAuthProps,

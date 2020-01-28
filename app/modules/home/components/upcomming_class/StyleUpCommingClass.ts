@@ -150,17 +150,17 @@ export default StyleSheet.create({
     borderRadius: 10,
     marginHorizontal: 15,
   },
-  courseProgressBarWrapper: {
+  classProgressBarWrapper: {
     width: '100%',
     paddingTop: 10
   },
-  courseProgressLabelWrapper: {
+  classProgressLabelWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
   },
-  courseProgressLabel: {
+  classProgressLabel: {
     color: Colors.gray,
     fontSize: 12
   },

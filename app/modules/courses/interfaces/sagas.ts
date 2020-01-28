@@ -1,5 +1,4 @@
-export interface IWorkerSagaBinusSignIn {
-  type: string;
-  send?: any;
-  callback? :function;
+export interface IworkerSagaClassListParams { 
+  type: string, 
+  dataList: any,
 }

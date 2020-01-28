@@ -1,10 +1,10 @@
 import React from 'react';
-import Courses from './views/index';
-import GraduationHat from '../../assets/images/graduation-hat.tsx';
+import ViewClass from './views/index';
+import GraduationHat from '../../assets/images/graduation-hat';
 
 export default {
-  Courses: { 
-    screen: Courses.Main,
+  Class: { 
+    screen: ViewClass.UpcomingClass,
     navigationOptions: ({ navigation }) => {
       const isActive =  navigation.isFocused();
       return {

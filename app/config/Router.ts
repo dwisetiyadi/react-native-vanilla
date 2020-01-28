@@ -1,17 +1,12 @@
 /**
  * @author: dwi.setiyadi@gmail.com
 */
-
-import RouterAuth from '../modules/auth/RouterAuth';
-import RouterUsers from '../modules/users/RouterUsers';
 import RouterBinusAuth from '../modules/auth_binus/RouterAuth';
 import RouterHome from '../modules/home/RouterHome';
 import RouterCourses from '../modules/courses/RouterCourses';
 
-const modules = {
+const auth = {
   ...RouterBinusAuth,
-  // ...RouterAuth,
-  // ...RouterUsers,
 };
 
 const mainModules = {
@@ -21,7 +16,6 @@ const mainModules = {
 
 
 const settings = {
-  // initialRouteName: 'AuthLoading',
   initialRouteName: 'BinusSignIn',
   headerMode: 'none',
 };
@@ -34,13 +28,11 @@ const mainModulesSettings  = {
 }
 
 const exitAppWhiteListScreen = [
-  // 'AuthLoading',
   'BinusSignIn',
-  'Auth',
 ];
 
 export default {
-  modules,
+  auth,
   settings,
   exitAppWhiteListScreen,
   mainModules,

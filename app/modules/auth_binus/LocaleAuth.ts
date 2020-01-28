@@ -14,9 +14,9 @@ export default [
   {
     id: 'Nama user',
     en: 'Username'
-  }.
+  },
   {
     id: 'Sandi',
     en: 'Password',
-  },
+  }
 ];

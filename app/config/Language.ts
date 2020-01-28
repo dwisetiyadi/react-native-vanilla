@@ -4,13 +4,13 @@
 
 
 import LocaleGlobal from '../lang/LocaleGlobal';
-import LocaleAuth from '../modules/auth/LocaleAuth';
-import LocaleUsers from '../modules/users/LocaleUsers';
+import LocaleBinusAuth from '../modules/auth_binus/LocaleAuth';
+import LocaleHome from '../modules/home/LocaleHome';
 
 export const Locale = [
   ...LocaleGlobal,
-  ...LocaleAuth,
-  ...LocaleUsers,
+  ...LocaleBinusAuth,
+  ...LocaleHome,
 ];
 
 export const Availability = [

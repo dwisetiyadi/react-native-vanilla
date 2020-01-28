@@ -53,12 +53,12 @@ class BinusSignInAuth extends Component<IBinusSignInAuthProps, any> {
     };
   }
   componentDidMount() {
-    this.setState({showLoadingModal: false});
+    this.setState({showLoadingModal: true});
     getToken((res) => {
       if(res) {
         this.props.navigation.navigate('App')
       }
-      this.setState({showLoadingModal: true});
+      this.setState({showLoadingModal: false});
     })
   }
 

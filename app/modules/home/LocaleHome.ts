@@ -9,7 +9,7 @@ export default [
   },
   {
     id: 'Kemajuan kursus',
-    en: 'Course progress',
+    en: 'Class progress',
   },
   {
     id: 'Kelas Mendatang',
@@ -33,7 +33,7 @@ export default [
   },
   {
     id: 'Kemajuan Kursus',
-    en: 'Course Progress'
+    en: 'Class Progress'
   },
   {
     id: 'Hal yang harus dilakukan di minggu ini',

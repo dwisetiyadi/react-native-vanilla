@@ -3,7 +3,7 @@
 */
 import RouterBinusAuth from '../modules/auth_binus/RouterAuth';
 import RouterHome from '../modules/home/RouterHome';
-import RouterCourses from '../modules/courses/RouterCourses';
+import RouterClass from '../modules/courses/RouterClass';
 
 const auth = {
   ...RouterBinusAuth,
@@ -11,7 +11,7 @@ const auth = {
 
 const mainModules = {
   ...RouterHome,
-  ...RouterCourses,
+  ...RouterClass,
 }
 
 

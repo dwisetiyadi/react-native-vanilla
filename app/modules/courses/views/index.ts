@@ -1,7 +1,7 @@
-import Courses from './Courses';
+import UpcomingClass_ from './UpcomingClass';
 
-const Main = Courses;
+const UpcomingClass = UpcomingClass_;
 
 export default {
-  Main,
+  UpcomingClass,
 };

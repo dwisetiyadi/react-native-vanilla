@@ -82,10 +82,10 @@ class UpCommingClass extends React.Component<IUpcommingClassProps, any> {
                 <Text style={Styles.tasksLabel}>{(data.class || {}).schedule}</Text>
               </View> 
               {this.TemplateTask()}
-              <View style={Styles.courseProgressBarWrapper}>
-                <View style={Styles.courseProgressLabelWrapper}>
-                  <Text style={Styles.courseProgressLabel}>{_('Course Progress')}</Text>
-                  <Text style={Styles.courseProgressLabel}>{data.progress}%</Text>
+              <View style={Styles.classProgressBarWrapper}>
+                <View style={Styles.classProgressLabelWrapper}>
+                  <Text style={Styles.classProgressLabel}>{_('Class Progress')}</Text>
+                  <Text style={Styles.classProgressLabel}>{data.progress}%</Text>
                 </View>
                 <ProgressBar 
                   styleFill={{

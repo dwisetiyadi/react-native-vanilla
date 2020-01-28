@@ -1,7 +1,8 @@
-export interface IReducerBinusAuthState {
-  fetch: boolean;
-  send: any;
-  res: any;
-  err: any;
+export interface IClassState {
+  fetchList: boolean,
+  resList: any[],
+  errList: any,
+  dataList: any,
+  totalList: number,
   action: string;
 }

@@ -196,19 +196,20 @@ class HomeComponent extends Component<IHomeProps, any> {
   render() {
     console.log("this.props: ", this.props)
     return (
+      <ScrollView
+      style={{ flex: 1 }}
+    >
       <LinearGradient 
         colors={['#1C9AD7', '#7F3485']} 
         start={{x:0, y: 0}} 
         end={{ x: 1, y: 1 }} 
-        style={{ minHeight: '100%', width: '100%', marginBottom: 18 }}
+        style={{ minHeight: '100%', width: '100%', marginBottom: 18, padding: 16 }}
       >
-        <ScrollView
-          style={{ padding: 16 }}
-        >
           {this.TemplateHeader()}
           {this.TemplateBody()}
-        </ScrollView>
+        
       </LinearGradient>
+      </ScrollView>
     );
   }
 }

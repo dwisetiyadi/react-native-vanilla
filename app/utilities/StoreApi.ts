@@ -8,12 +8,10 @@
 
 import axios from 'axios';
 import qs from 'qs';
-import { APIURI, APISINTONG } from '../config/Api';
+import { APIURI, APISINTONG, APIMO } from '../config/Api';
 import { 
   getToken
 } from '../config/Helpers';
-
-
 
 export const post = (operation: string, data: any): any => axios({
   method: 'post',
@@ -24,7 +22,7 @@ export const post = (operation: string, data: any): any => axios({
   },
 });
 
-export const get = (operation: string, data: any): any => axios.get(`${APIURI}${operation}?${qs.stringify(data)}`);
+export const get = (operation: string, data: any): any => axios.get(`${APIMO}${operation}?${qs.stringify(data)}`);
 
 export const request = async (operation: string, method: string, data?: any, contentType?: string = 'application/json'): any => {
   const Token = await getToken();  

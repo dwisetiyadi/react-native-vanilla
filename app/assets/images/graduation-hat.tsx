@@ -1,5 +1,5 @@
 import React from "react"
-import Svg, { Path,  Stop } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 function GraduationHat(props) {
   return (
     <Svg height={512} viewBox="0 0 512 512" width={512} {...props}>

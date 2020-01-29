@@ -28,7 +28,7 @@ export const request = async (operation: string, method: string, data?: any, con
   const Token = await getToken();  
   return axios({
     method: method,
-    url: APISINTONG + operation,
+    url: `${operation}?code=sendaljepitAndroid`,
     data,
     headers: {
       'content-type': contentType,

@@ -78,17 +78,23 @@ class BinusSignInAuth extends Component<IBinusSignInAuthProps, any> {
   }
 
   loginCallback(value?: any): void {
-    setTimeout(
-     () => setToken(value.token, (response) => {
-        this.setState({ showLoadingModal: false })
-        if(response) {
-          this.props.navigation.navigate('App')
-        } else {
-          alert("failure")
-        }
-      }),
-      1000
-    )
+    if(value) {
+      setTimeout(
+       () => setToken(value.token, (response) => {
+          this.setState({ showLoadingModal: false })
+          if(response) {
+            this.props.navigation.navigate('App')
+          } else {
+            alert("failure")
+          }
+        }),
+        1000
+      )
+    } else {
+      this.setState({ showLoadingModal: false })
+      alert("login gagal, username atau password salah");
+
+    }
     
   }
 
@@ -118,7 +124,7 @@ class BinusSignInAuth extends Component<IBinusSignInAuthProps, any> {
   }
   TemplateHeader(): JSX.Element {
     return (
-      <View style={StyleAuth.headerContainer}>
+      <View style={StyleAuth.headerWrapper}>
         <Text style={StyleAuth.headerTitle}>BINUS MAYA</Text>
       </View>
     )

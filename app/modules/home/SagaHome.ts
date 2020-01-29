@@ -15,13 +15,14 @@ import {
   classSuccess,
   classFailed,
 } from './ActionHome';
+import { APISINTONG } from '../../config/Api';
 // import  { IWorkerSagaBinusSignIn } from './interfaces/sagas';
 
 
 function* workerSagaClassFetch() {
   console.log("workerSagaClassFetch");
   try {
-    const response = yield call(request, '/classes', 'GET');
+    const response = yield call(request, `${APISINTONG}/classes`, 'GET');
     if (response.success) {
       yield put.resolve(classSuccess(response));
     } else {

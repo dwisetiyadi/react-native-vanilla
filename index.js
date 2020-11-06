@@ -1,17 +1,9 @@
 /**
- * @author: dwi.setiyadi@gmail.com
-*/
+ * @format
+ */
 
-import { AppRegistry, YellowBox } from 'react-native';
-import App from './App';
-import { name as appName } from './app.json';
-
-YellowBox.ignoreWarnings([
-  'Require cycle:',
-  'unknown call: "relay:check"',
-]);
-
-// if (Text.defaultProps == null) Text.defaultProps = {};
-// Text.defaultProps.allowFontScaling = false;
+import {AppRegistry} from 'react-native';
+import App from '@app/Bootstrap.app';
+import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => App);
